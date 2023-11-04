@@ -14,8 +14,6 @@ public class CustomCharacter : MonoBehaviour
     public static SetPantsColorDelegate setPantsColor;
 
     [SerializeField] GameObject hat;
-    //[SerializeField] Color shirtColor;
-    //[SerializeField] Color pantsColor;
 
     [SerializeField] Transform hatPosition;
     [SerializeField] MeshRenderer shirtMesh;
