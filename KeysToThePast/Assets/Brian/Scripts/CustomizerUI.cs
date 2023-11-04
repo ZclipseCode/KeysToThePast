@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CustomizerUI : MonoBehaviour
 {
@@ -9,9 +10,16 @@ public class CustomizerUI : MonoBehaviour
     [SerializeField] List<GameObject> hats;
     int currentHatIndex;
 
+    [SerializeField] Slider shirtRedSlider;
+    [SerializeField] Slider shirtGreenSlider;
+    [SerializeField] Slider shirtBlueSlider;
+    Color shirtColor;
+
     private void Start()
     {
         hatText.text = $"Hat {currentHatIndex + 1}/{hats.Count}";
+
+        SetShirtColors();
     }
 
     public void NextHat()
@@ -46,5 +54,9 @@ public class CustomizerUI : MonoBehaviour
         CustomCharacter.setHat(hats[currentHatIndex]);
     }
 
-    // choose colors
+    public void SetShirtColors()
+    {
+        shirtColor = new Color(shirtRedSlider.value, shirtGreenSlider.value, shirtBlueSlider.value);
+        CustomCharacter.setShirtColor(shirtColor);
+    }
 }
