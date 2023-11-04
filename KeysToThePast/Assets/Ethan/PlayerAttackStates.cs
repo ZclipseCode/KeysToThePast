@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerAttackStates : MonoBehaviour{
+public class PlayerAttackStates : MonoBehaviour {
     [SerializeField]
     public CombatState attackState;
 
@@ -17,42 +17,55 @@ public class PlayerAttackStates : MonoBehaviour{
     private bool block = false;
     private bool grabbed = false;
 
-    public void OnAttack(InputAction.CallbackContext context)
-    {
+    public void OnAttack(InputAction.CallbackContext context) {
         attacked = context.action.triggered;
     }
-    public void OnSpecial(InputAction.CallbackContext context)
-    {
+    public void OnSpecial(InputAction.CallbackContext context) {
         specialed = context.action.triggered;
     }
-    public void OnBlock(InputAction.CallbackContext context)
-    {
+    public void OnBlock(InputAction.CallbackContext context) {
         block = context.action.triggered;
     }
-    public void OnGrab(InputAction.CallbackContext context)
-    {
+    public void OnGrab(InputAction.CallbackContext context) {
         grabbed = context.action.triggered;
     }
 
-    void Start()
-    {
+    void Start() {
         movementScript = this.gameObject.GetComponent<PlayerMovement>();
     }
 
-    void Update()
-    {
+    void Update() {
         moveState = movementScript.mState;
 
-        if (attacked)
-        {
-            if(moveState == MovementStates.STANDING || moveState == MovementStates.WALKINGLEFT || moveState == MovementStates.WALKINGRIGHT)
-            {
+        if (attacked && attackState == CombatState.NOATTACK) {
+            if (moveState == MovementStates.STANDING || moveState == MovementStates.WALKINGLEFT || moveState == MovementStates.WALKINGRIGHT) {
                 attackState = CombatState.MIDDLEATTACK;
                 //Play Punch Animation
             }
+            else if (moveState == MovementStates.CROUCHING) {
+                attackState = CombatState.LOWATTACK;
+                //play lowattack animation
+            }
+            else {
+                attackState = CombatState.OVERHEAD;
+                //play overhead animation
+            }
         }
-        else
-        {
+        else if (specialed && attackState == CombatState.NOATTACK) {
+            if (moveState == MovementStates.STANDING || moveState == MovementStates.WALKINGLEFT || moveState == MovementStates.WALKINGRIGHT) {
+                attackState = CombatState.MIDDLEATTACK;
+                //Play special middle Animation
+            }
+            else if (moveState == MovementStates.CROUCHING) {
+                attackState = CombatState.LOWATTACK;
+                //play special low animation
+            }
+            else {
+                attackState = CombatState.OVERHEAD;
+                //play special overhead animation
+            }
+        }
+        else {
             attackState = CombatState.NOATTACK;
         }
     }
