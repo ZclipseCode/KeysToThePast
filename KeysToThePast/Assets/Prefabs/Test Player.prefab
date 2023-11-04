@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 2891958329106342098}
   - component: {fileID: 1236451697416872390}
   - component: {fileID: 7805125167966096945}
+  - component: {fileID: 6423616999361611616}
   m_Layer: 0
   m_Name: Test Player
   m_TagString: Untagged
@@ -341,6 +342,70 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b5f552f6-cd01-4d72-8039-0b63fe991130
     m_ActionName: Player/Jump[/Keyboard/space,/XInputControllerWindows/buttonNorth,/SwitchProControllerHID/buttonNorth,/XInputControllerWindows/buttonWest,/SwitchProControllerHID/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6423616999361611616}
+        m_TargetAssemblyTypeName: PlayerAttackStates, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7e8ab1ab-c798-424a-9b04-7c439a5d8307
+    m_ActionName: Player/Basic Attack[/Keyboard/u,/SwitchProControllerHID/buttonEast,/XInputControllerWindows1/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6423616999361611616}
+        m_TargetAssemblyTypeName: PlayerAttackStates, Assembly-CSharp
+        m_MethodName: OnSpecial
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7d649313-c954-493c-8a94-e2a6b9683ab3
+    m_ActionName: Player/Special Attack[/Keyboard/i,/SwitchProControllerHID/buttonSouth,/XInputControllerWindows1/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6423616999361611616}
+        m_TargetAssemblyTypeName: PlayerAttackStates, Assembly-CSharp
+        m_MethodName: OnBlock
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 19ebf2ad-6041-4ed4-9a72-295cc99ad6ba
+    m_ActionName: Player/Block[/Keyboard/o,/SwitchProControllerHID/rightTrigger,/XInputControllerWindows1/rightTrigger,/SwitchProControllerHID/leftTrigger,/XInputControllerWindows1/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6423616999361611616}
+        m_TargetAssemblyTypeName: PlayerAttackStates, Assembly-CSharp
+        m_MethodName: OnGrab
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e3317d19-0749-4ad5-b617-556d5dd722b4
+    m_ActionName: Player/Grab[/Keyboard/p,/SwitchProControllerHID/rightShoulder,/XInputControllerWindows1/rightShoulder,/SwitchProControllerHID/leftShoulder,/XInputControllerWindows1/leftShoulder]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -404,6 +469,21 @@ MonoBehaviour:
   playerTag: {fileID: 5630009299969325271}
   otherPlayer: {fileID: 0}
   playerOnRightSide: 0
+--- !u!114 &6423616999361611616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3664061130442601294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d2be6daef736f143b014b1f36a9ece0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackState: 0
+  moveState: 0
+  movementScript: {fileID: 0}
 --- !u!1 &4750973248108882755
 GameObject:
   m_ObjectHideFlags: 0

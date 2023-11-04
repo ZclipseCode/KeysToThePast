@@ -1,8 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PlayerStates : MonoBehaviour{
+public class PlayerAttackStates : MonoBehaviour{
+    [SerializeField]
+    public CombatState attackState;
+
+    [SerializeField]
+    public MovementStates moveState;
+
+    public PlayerMovement movementScript;
+
+    private bool attacked = false;
+    private bool specialed = false;
+    private bool block = false;
+    private bool grabbed = false;
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        attacked = context.action.triggered;
+    }
+    public void OnSpecial(InputAction.CallbackContext context)
+    {
+        specialed = context.action.triggered;
+    }
+    public void OnBlock(InputAction.CallbackContext context)
+    {
+        block = context.action.triggered;
+    }
+    public void OnGrab(InputAction.CallbackContext context)
+    {
+        grabbed = context.action.triggered;
+    }
+
+    void Start()
+    {
+        movementScript = this.gameObject.GetComponent<PlayerMovement>();
+    }
+
+    void Update()
+    {
+        moveState = movementScript.mState;
+
+        if (attacked)
+        {
+            if(moveState == MovementStates.STANDING || moveState == MovementStates.WALKINGLEFT || moveState == MovementStates.WALKINGRIGHT)
+            {
+                attackState = CombatState.MIDDLEATTACK;
+                //Play Punch Animation
+            }
+        }
+        else
+        {
+            attackState = CombatState.NOATTACK;
+        }
+    }
+
+
     //if player inputs jab button and not locked in any other animation nor INCOMBO
     //check for airborne, crouching, or standing
     //if walking slow movement and jab animation CombatState = MIDDLEATTACK
