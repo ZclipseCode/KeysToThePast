@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CustomizerUI : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI hatText;
     [SerializeField] List<GameObject> hats;
     int currentHatIndex;
 
+    private void Start()
+    {
+        hatText.text = $"Hat {currentHatIndex + 1}/{hats.Count}";
+    }
+
     public void NextHat()
     {
-        if (currentHatIndex + 1 > hats.Count)
+        if (currentHatIndex + 1 >= hats.Count)
         {
             currentHatIndex = 0;
         }
@@ -18,6 +25,8 @@ public class CustomizerUI : MonoBehaviour
             currentHatIndex++;
         }
 
+        hatText.text = $"Hat {currentHatIndex + 1}/{hats.Count}";
+
         CustomCharacter.setHat(hats[currentHatIndex]);
     }
 
@@ -25,12 +34,14 @@ public class CustomizerUI : MonoBehaviour
     {
         if (currentHatIndex - 1 < 0)
         {
-            currentHatIndex = hats.Count;
+            currentHatIndex = hats.Count - 1;
         }
         else
         {
             currentHatIndex--;
         }
+
+        hatText.text = $"Hat {currentHatIndex + 1}/{hats.Count}";
 
         CustomCharacter.setHat(hats[currentHatIndex]);
     }

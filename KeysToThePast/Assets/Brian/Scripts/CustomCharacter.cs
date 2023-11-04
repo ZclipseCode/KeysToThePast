@@ -22,7 +22,11 @@ public class CustomCharacter : MonoBehaviour
         setHat += SetHat;
     }
 
-    public void SetHat(GameObject h) => hat = h;
+    public void SetHat(GameObject h)
+    {
+        Destroy(hat);
+        hat = Instantiate(h);
+    }
 
     public void SetShirtColor(Color color) => shirtColor = color;
 
