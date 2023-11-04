@@ -10,6 +10,8 @@ public class CustomCharacter : MonoBehaviour
     public static SetHatDelegate setHat;
     public delegate void SetShirtColorDelegate(Color color);
     public static SetShirtColorDelegate setShirtColor;
+    public delegate void SetPantsColorDelegate(Color color);
+    public static SetPantsColorDelegate setPantsColor;
 
     [SerializeField] GameObject hat;
     //[SerializeField] Color shirtColor;
@@ -17,11 +19,13 @@ public class CustomCharacter : MonoBehaviour
 
     [SerializeField] Transform hatPosition;
     [SerializeField] MeshRenderer shirtMesh;
+    [SerializeField] MeshRenderer pantsMesh;
 
     private void Awake()
     {
         setHat += SetHat;
         setShirtColor += SetShirtColor;
+        setPantsColor += SetPantsColor;
     }
 
     private void Start()
@@ -41,11 +45,15 @@ public class CustomCharacter : MonoBehaviour
         shirtMesh.material.color = color;
     }
 
-    //public void SetPantsColor(Color color) => pantsColor = color;
+    public void SetPantsColor(Color color)
+    {
+        pantsMesh.material.color = color;
+    }
 
     private void OnDestroy()
     {
         setHat -= SetHat;
         setShirtColor -= SetShirtColor;
+        setPantsColor -= SetPantsColor;
     }
 }

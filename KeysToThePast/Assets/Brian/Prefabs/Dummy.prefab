@@ -398,6 +398,7 @@ MonoBehaviour:
   hat: {fileID: 5317087544372222805}
   hatPosition: {fileID: 3164396017577828931}
   shirtMesh: {fileID: 2402054589361825700}
+  pantsMesh: {fileID: 2725293959130693005}
 --- !u!1001 &6654567791865394111
 PrefabInstance:
   m_ObjectHideFlags: 0

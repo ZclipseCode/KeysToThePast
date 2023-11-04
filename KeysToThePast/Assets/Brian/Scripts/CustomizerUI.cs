@@ -15,11 +15,18 @@ public class CustomizerUI : MonoBehaviour
     [SerializeField] Slider shirtBlueSlider;
     Color shirtColor;
 
+    [SerializeField] Slider pantsRedSlider;
+    [SerializeField] Slider pantsGreenSlider;
+    [SerializeField] Slider pantsBlueSlider;
+    Color pantsColor;
+
     private void Start()
     {
         hatText.text = $"Hat {currentHatIndex + 1}/{hats.Count}";
 
         SetShirtColors();
+
+        SetPantsColors();
     }
 
     public void NextHat()
@@ -58,5 +65,11 @@ public class CustomizerUI : MonoBehaviour
     {
         shirtColor = new Color(shirtRedSlider.value, shirtGreenSlider.value, shirtBlueSlider.value);
         CustomCharacter.setShirtColor(shirtColor);
+    }
+
+    public void SetPantsColors()
+    {
+        pantsColor = new Color(pantsRedSlider.value, pantsGreenSlider.value, pantsBlueSlider.value);
+        CustomCharacter.setPantsColor(pantsColor);
     }
 }
