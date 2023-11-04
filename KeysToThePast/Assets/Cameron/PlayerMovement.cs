@@ -47,7 +47,9 @@ public class PlayerMovement : MonoBehaviour
 
         //print(movementInput.x);
 
+        
         Vector3 move = new Vector3(movementInput.x, 0, 0);
+        
         if (!groundedPlayer) {
             mState = MovementStates.AIRBORNE;
         }
@@ -63,8 +65,11 @@ public class PlayerMovement : MonoBehaviour
         else {
             mState = MovementStates.STANDING;
         }
-        controller.Move(move * Time.deltaTime * playerSpeed);
 
+        if (movementInput.y > -.5 || mState == MovementStates.AIRBORNE)
+        {
+            controller.Move(move * Time.deltaTime * playerSpeed);
+        }
 
 
         // Changes the height position of the player..
