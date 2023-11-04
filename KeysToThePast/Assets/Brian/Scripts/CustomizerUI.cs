@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Windows.Forms;
 
 public class CustomizerUI : MonoBehaviour
 {
@@ -71,5 +72,48 @@ public class CustomizerUI : MonoBehaviour
     {
         pantsColor = new Color(pantsRedSlider.value, pantsGreenSlider.value, pantsBlueSlider.value);
         CustomCharacter.setPantsColor(pantsColor);
+    }
+
+    public void UploadShirt()
+    {
+        OpenFileDialog openFileDialog = new OpenFileDialog();
+        openFileDialog.Filter = "Image Files|*.jpg;*.png;*.jpeg;*.bmp|All Files|*.*";
+
+        if (openFileDialog.ShowDialog() == DialogResult.OK)
+        {
+            string selectedFilePath = openFileDialog.FileName;
+
+            Texture2D selectedTexture = LoadTexture(selectedFilePath);
+
+            CustomCharacter.setShirtTexture(selectedTexture);
+        }
+    }
+
+    public void UploadPants()
+    {
+        OpenFileDialog openFileDialog = new OpenFileDialog();
+        openFileDialog.Filter = "Image Files|*.jpg;*.png;*.jpeg;*.bmp|All Files|*.*";
+
+        if (openFileDialog.ShowDialog() == DialogResult.OK)
+        {
+            string selectedFilePath = openFileDialog.FileName;
+
+            Texture2D selectedTexture = LoadTexture(selectedFilePath);
+
+            CustomCharacter.setPantsTexture(selectedTexture);
+        }
+    }
+
+    private Texture2D LoadTexture(string filePath)
+    {
+        byte[] fileData = System.IO.File.ReadAllBytes(filePath);
+        Texture2D texture = new Texture2D(2, 2);
+
+        if (texture.LoadImage(fileData))
+        {
+            return texture;
+        }
+
+        return null;
     }
 }

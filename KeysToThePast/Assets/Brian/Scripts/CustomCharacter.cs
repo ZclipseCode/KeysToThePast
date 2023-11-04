@@ -12,6 +12,10 @@ public class CustomCharacter : MonoBehaviour
     public static SetShirtColorDelegate setShirtColor;
     public delegate void SetPantsColorDelegate(Color color);
     public static SetPantsColorDelegate setPantsColor;
+    public delegate void SetShirtTextureDelegate(Texture2D texture);
+    public static SetShirtTextureDelegate setShirtTexture;
+    public delegate void SetPantsTextureDelegate(Texture2D texture);
+    public static SetPantsTextureDelegate setPantsTexture;
 
     [SerializeField] GameObject hat;
 
@@ -19,11 +23,16 @@ public class CustomCharacter : MonoBehaviour
     [SerializeField] MeshRenderer shirtMesh;
     [SerializeField] MeshRenderer pantsMesh;
 
+    bool shirtRgbMode = true;
+    bool pantsRgbMode = true;
+
     private void Awake()
     {
         setHat += SetHat;
         setShirtColor += SetShirtColor;
         setPantsColor += SetPantsColor;
+        setShirtTexture += SetShirtTexture;
+        setPantsTexture += SetPantsTexture;
     }
 
     private void Start()
@@ -40,12 +49,34 @@ public class CustomCharacter : MonoBehaviour
 
     public void SetShirtColor(Color color)
     {
-        shirtMesh.material.color = color;
+        if (shirtRgbMode)
+        {
+            shirtMesh.material.color = color;
+        }
     }
 
     public void SetPantsColor(Color color)
     {
-        pantsMesh.material.color = color;
+        if (pantsRgbMode)
+        {
+            pantsMesh.material.color = color;
+        }
+    }
+
+    public void SetShirtTexture(Texture2D texture)
+    {
+        shirtMesh.material.mainTexture = texture;
+
+        shirtMesh.material.color = Color.white;
+        shirtRgbMode = false;
+    }
+
+    public void SetPantsTexture(Texture2D texture)
+    {
+        pantsMesh.material.mainTexture = texture;
+
+        pantsMesh.material.color = Color.white;
+        pantsRgbMode = false;
     }
 
     private void OnDestroy()
@@ -53,5 +84,7 @@ public class CustomCharacter : MonoBehaviour
         setHat -= SetHat;
         setShirtColor -= SetShirtColor;
         setPantsColor -= SetPantsColor;
+        setShirtTexture -= SetShirtTexture;
+        setPantsTexture -= SetPantsTexture;
     }
 }
