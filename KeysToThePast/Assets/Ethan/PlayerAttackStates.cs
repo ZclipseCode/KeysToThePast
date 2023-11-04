@@ -16,6 +16,8 @@ public class PlayerAttackStates : MonoBehaviour {
     private bool specialed = false;
     private bool block = false;
     private bool grabbed = false;
+    [Header("Animation")]
+    [SerializeField] Animator anim;
 
     public void OnAttack(InputAction.CallbackContext context) {
         attacked = context.action.triggered;
@@ -36,7 +38,9 @@ public class PlayerAttackStates : MonoBehaviour {
 
     void Update() {
         moveState = movementScript.mState;
-
+        if(attackState == CombatState.NOATTACK) {
+            anim.SetInteger("AnimNum", 0);
+        }
         if (attacked && attackState == CombatState.NOATTACK) {
             if (moveState == MovementStates.STANDING || moveState == MovementStates.WALKINGLEFT || moveState == MovementStates.WALKINGRIGHT) {
                 attackState = CombatState.MIDDLEATTACK;
@@ -49,6 +53,8 @@ public class PlayerAttackStates : MonoBehaviour {
             else {
                 attackState = CombatState.OVERHEAD;
                 //play overhead animation
+                anim.SetInteger("AnimNum", 1);
+                
             }
         }
         else if (specialed && attackState == CombatState.NOATTACK) {
@@ -65,9 +71,9 @@ public class PlayerAttackStates : MonoBehaviour {
                 //play special overhead animation
             }
         }
-        else {
-            attackState = CombatState.NOATTACK;
-        }
+        //else {
+        //    attackState = CombatState.NOATTACK;
+        //}
     }
 
 
