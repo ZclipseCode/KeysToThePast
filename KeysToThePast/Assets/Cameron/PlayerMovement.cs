@@ -1,83 +1,58 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent (typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
-    private CustomInput input = null;
-    private Vector2 moveVector = Vector2.zero;
-    private Rigidbody rb = null;
-    private float moveSpeed = 10f;
-    [SerializeField] GameObject groundCheck;
-    public bool canJump = false;
+    private CharacterController controller;
+    private Vector3 playerVelocity;
+    private bool groundedPlayer;
 
+    [SerializeField]
+    private float playerSpeed = 2.0f;
+    [SerializeField]
+    private float jumpHeight = 1.0f;
+    [SerializeField]
+    private float gravityValue = -9.81f;
 
-    public void OnTriggerStay(Collider other)
+    private Vector2 movementInput = Vector2.zero;
+    private bool jumped = false;
+
+    private void Start()
     {
-        if (other.CompareTag("floor"))
-        {
-            canJump = true;
-        }
+        controller = gameObject.GetComponent<CharacterController>();
     }
 
-    public void OnTriggerExit(Collider other)
+    public void OnMove(InputAction.CallbackContext context)
     {
-        if (other.CompareTag("floor"))
-        {
-            canJump = false;
-        }
+        movementInput = context.ReadValue<Vector2>();
     }
 
-    // Start is called before the first frame update
-    private void Awake()
+    public void OnJump(InputAction.CallbackContext context)
     {
-        input = new CustomInput();
-        rb = GetComponent<Rigidbody>();
+        jumped = context.action.triggered;
     }
 
-    private void OnEnable()
-    {
-        input.Enable();
-        input.Player.Movement.performed += OnMovementPerformed;
-        input.Player.Movement.canceled += OnMovementCancelled;
-    }
-
-    private void OnDisable()
-    {
-        input.Disable();
-        input.Player.Movement.performed -= OnMovementPerformed;
-        input.Player.Movement.canceled -= OnMovementCancelled;
-    }
-
-    private void OnMovementPerformed(InputAction.CallbackContext value)
-    {
-        moveVector = value.ReadValue<Vector2>();
-    }
-
-    private void OnMovementCancelled(InputAction.CallbackContext value)
-    {
-        moveVector = Vector2.zero;
-    }
-
-    private void FixedUpdate()
-    {
-        if (canJump)
-        {
-            
-        }
-        else if (!canJump)
-        {
-            moveVector.y = 0;
-            rb.AddForce(0, -50, 0);
-        }
-        
-        rb.velocity = moveVector * moveSpeed;
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        groundedPlayer = controller.isGrounded;
+        if (groundedPlayer && playerVelocity.y < 0)
+        {
+            playerVelocity.y = 0f;
+        }
+
+        Vector3 move = new Vector3(movementInput.x, 0, 0);
+        controller.Move(move * Time.deltaTime * playerSpeed);
+
+
+
+        // Changes the height position of the player..
+        if (jumped && groundedPlayer)
+        {
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+        }
+
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        controller.Move(playerVelocity * Time.deltaTime);
     }
 }
