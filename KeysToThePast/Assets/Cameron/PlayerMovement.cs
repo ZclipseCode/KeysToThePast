@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        print(movementInput.x);
+        //print(movementInput.x);
 
         Vector3 move = new Vector3(movementInput.x, 0, 0);
         if (!groundedPlayer) {

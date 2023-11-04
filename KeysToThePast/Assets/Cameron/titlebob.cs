@@ -20,5 +20,6 @@ public class titlebob : MonoBehaviour
     void Update()
     {
         transform.localScale = startPosition + transform.localScale * Mathf.Sin(Time.time * frequency + offset) * magnitude;
+
     }
 }
