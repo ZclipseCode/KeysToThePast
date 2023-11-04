@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private bool groundedPlayer;
 
     [SerializeField]
+    public MovementStates mState;
+    [SerializeField]
     private float playerSpeed = 2.0f;
     [SerializeField]
     private float jumpHeight = 1.0f;
@@ -26,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
+
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -36,12 +39,28 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         groundedPlayer = controller.isGrounded;
+        
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
         }
 
         Vector3 move = new Vector3(movementInput.x, 0, 0);
+        if (!groundedPlayer) {
+            mState = MovementStates.AIRBORNE;
+        }
+        else if (movementInput.y < -.5) {
+            mState = MovementStates.CROUCHING;
+        }
+        else if(movementInput.x < 0) {
+            mState = MovementStates.WALKINGLEFT;
+        }
+        else if(movementInput.x > 0) {
+            mState = MovementStates.WALKINGRIGHT;
+        }
+        else {
+            mState = MovementStates.STANDING;
+        }
         controller.Move(move * Time.deltaTime * playerSpeed);
 
 
@@ -55,4 +74,12 @@ public class PlayerMovement : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
+}
+
+public enum MovementStates {
+    STANDING,
+    CROUCHING,
+    WALKINGRIGHT,
+    WALKINGLEFT,
+    AIRBORNE,
 }
