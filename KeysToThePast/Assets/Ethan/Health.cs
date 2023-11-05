@@ -8,21 +8,32 @@ public class Health : MonoBehaviour{
     [SerializeField] Player pl;
     [SerializeField] PlayerAttackStates pas;
     [SerializeField] Rigidbody rb;
+    private bool canBeDamaged;
+    private int damage;
     //public int tension;
     //[SerializeField] int maxTension;
 
     private void Start() {
         HP = maxHP;
+        canBeDamaged = true;
+        damage = 0;
     }
 
-    public void TakeDamage(int damage) {
+    public void TakeDamage(int dmg) {
+        if (canBeDamaged) {
+            canBeDamaged = false;
+            damage = dmg;
+            Invoke("SendDamage", 1);
+        }
+    }
+    private void SendDamage() {
         HP -= damage;
-        if(HP < 0) {
+        if (HP < 0) {
             Death();
         }
         else {
             pas.attackState = CombatState.INCOMBO;
-            rb.AddForce(0,damage,0, ForceMode.Impulse);
+            rb.AddForce(0, damage, 0, ForceMode.Impulse);
         }
     }
 
