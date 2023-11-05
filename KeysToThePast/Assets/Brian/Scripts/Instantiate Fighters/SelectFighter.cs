@@ -56,12 +56,12 @@ public class SelectFighter : MonoBehaviour
 
     public void ReadyForInput()
     {
-        prompt.text = $"Player {currentPlayerIndex + 1}: press any button!";
+        prompt.text = $"Player {currentPlayerIndex + 1}: Press Any Button!";
     }
 
     public void ReadyForFighter()
     {
-        prompt.text = $"Player {currentPlayerIndex + 1}: choose your fighter!";
+        prompt.text = $"Player {currentPlayerIndex + 1}: Choose Your Fighter!";
     }
 
     private void OnDestroy()
