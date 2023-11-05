@@ -13,7 +13,6 @@ public class SelectFighter : MonoBehaviour
     int currentPlayerIndex;
     InputAction tempInput;
     GameObject tempFighter;
-    //PlayerInputManager inputManager;
     public delegate void PlayerJoinDelegate(InputAction action);
     public static PlayerJoinDelegate playerJoin;
 

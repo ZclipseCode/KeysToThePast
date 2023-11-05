@@ -9,6 +9,11 @@ public class InstantiateFighters : MonoBehaviour
 
     private void Start()
     {
+        CreateFighters();
+    }
+
+    public void CreateFighters()
+    {
         for (int i = 0; i < SelectFighter.players.Length; i++)
         {
             Instantiate(SelectFighter.players[i].fighter, spawnLocations[i].position, Quaternion.identity);

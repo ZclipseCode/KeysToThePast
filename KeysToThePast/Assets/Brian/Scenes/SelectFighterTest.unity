@@ -476,7 +476,7 @@ MonoBehaviour:
         m_MethodName: AddFighter
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1350206891}
+          m_ObjectArgument: {fileID: 8335013473285524809, guid: f04548d16a49f9e40b69a68646fcbe48, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
