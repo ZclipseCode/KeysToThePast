@@ -188,9 +188,10 @@ GameObject:
   - component: {fileID: 1236451697416872390}
   - component: {fileID: 7805125167966096945}
   - component: {fileID: 6423616999361611616}
+  - component: {fileID: -5801964484250601614}
   m_Layer: 0
   m_Name: Test Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -406,6 +407,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e3317d19-0749-4ad5-b617-556d5dd722b4
     m_ActionName: Player/Grab[/Keyboard/p,/SwitchProControllerHID/rightShoulder,/XInputControllerWindows1/rightShoulder,/SwitchProControllerHID/leftShoulder,/XInputControllerWindows1/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 328cf838-986f-41b1-a1f2-85a1d0fdb090
+    m_ActionName: Player/Super[/Keyboard/j]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c0ddada0-13df-49b4-a60b-2ae70cabd37c
+    m_ActionName: Menu/Movement
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 780d8705-373b-4e3d-a020-17166c6c582c
+    m_ActionName: Menu/Select
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8bbd0667-f02d-41de-9e6b-c43845ab290f
+    m_ActionName: Menu/Back
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -484,6 +501,19 @@ MonoBehaviour:
   attackState: 0
   moveState: 0
   movementScript: {fileID: 0}
+  anim: {fileID: 0}
+--- !u!114 &-5801964484250601614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3664061130442601294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e7d62c2622c044595013115ff0d6ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4750973248108882755
 GameObject:
   m_ObjectHideFlags: 0
