@@ -185,11 +185,11 @@ public class PlayerAttackStates : MonoBehaviour {
 }
 
 public enum CombatState {
-    INCOMBO,
     NOATTACK,
     MIDDLEATTACK,
     LOWATTACK,
     OVERHEAD,
     STANDINGBLOCK,
     LOWBLOCK,
+    INCOMBO,
 }
