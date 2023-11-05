@@ -11,6 +11,7 @@ public class MenuManager : MonoBehaviour{
     [SerializeField] GameObject credits;
     [SerializeField] GameObject controls;
     [SerializeField] GameObject chracterSelect;
+    [SerializeField] AudioSource sound;
 
     private void Start() {
         titleScreen.SetActive(true);
@@ -23,30 +24,36 @@ public class MenuManager : MonoBehaviour{
     public void Menu() {
         titleScreen.SetActive(false);
         menu.SetActive(true);
+        sound.Play();
     }
 
     public void Fight() {
         Invoke("FightSwap", 1);
+        sound.Play();
     }
     
     private void FightSwap() {
         chracterSelect.SetActive(true);
         menu.SetActive(false);
+
     }
 
     public void Controls() {
         menu.SetActive(false);
         controls.SetActive(true);
+        sound.Play();
     }
 
     public void Credits() {
         menu.SetActive(false);
         credits.SetActive(true);
+        sound.Play();
     }
 
     public void Title() {
         menu.SetActive(false);
         titleScreen.SetActive(true);
+        sound.Play();
     }
 
     public void Back() {
@@ -54,9 +61,11 @@ public class MenuManager : MonoBehaviour{
         credits.SetActive(false);
         controls.SetActive(false);
         chracterSelect.SetActive(false);
+        sound.Play();
     }
 
     public void Custom() {
+        sound.Play();
         SceneManager.LoadScene("CharacterCustomizer");
     }
 }
