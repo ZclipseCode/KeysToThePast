@@ -191,109 +191,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &512023222
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 512023225}
-  - component: {fileID: 512023224}
-  - component: {fileID: 512023223}
-  m_Layer: 0
-  m_Name: Select Fighter Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &512023223
+--- !u!114 &512023224 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7046318745898083282, guid: 8bf0ba18b9607b84589ec588e08fc5d0, type: 3}
+  m_PrefabInstance: {fileID: 7927350582133820719}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 512023222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_NotificationBehavior: 2
-  m_MaxPlayerCount: 2
-  m_AllowJoining: 1
-  m_JoinBehavior: 0
-  m_PlayerJoinedEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 512023224}
-        m_TargetAssemblyTypeName: SelectFighter, Assembly-CSharp
-        m_MethodName: AddFighter
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_PlayerLeftEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_JoinAction:
-    m_UseReference: 0
-    m_Action:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 4391068786581433966, guid: 3d37a6a0472d1c343b9e6ee6405f9a85, type: 3}
-  m_SplitScreen: 0
-  m_MaintainAspectRatioInSplitScreen: 0
-  m_FixedNumberOfSplitScreens: -1
-  m_SplitScreenRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!114 &512023224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 512023222}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4357fef7ffcb97d4e8895a0de84377d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prompt: {fileID: 1839311132}
-  fightScene: ParallaxBackground
---- !u!4 &512023225
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 512023222}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 811.42896, y: 688.33215, z: -5.132748}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &539294984
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,12 +892,73 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839311130}
   m_CullTransparentMesh: 1
+--- !u!1001 &7927350582133820719
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7046318745898083282, guid: 8bf0ba18b9607b84589ec588e08fc5d0, type: 3}
+      propertyPath: prompt
+      value: 
+      objectReference: {fileID: 1839311132}
+    - target: {fileID: 7565679669364706096, guid: 8bf0ba18b9607b84589ec588e08fc5d0, type: 3}
+      propertyPath: m_Name
+      value: Select Fighter Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695343610570918334, guid: 8bf0ba18b9607b84589ec588e08fc5d0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 811.42896
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695343610570918334, guid: 8bf0ba18b9607b84589ec588e08fc5d0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 688.33215
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695343610570918334, guid: 8bf0ba18b9607b84589ec588e08fc5d0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.132748
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695343610570918334, guid: 8bf0ba18b9607b84589ec588e08fc5d0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695343610570918334, guid: 8bf0ba18b9607b84589ec588e08fc5d0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695343610570918334, guid: 8bf0ba18b9607b84589ec588e08fc5d0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695343610570918334, guid: 8bf0ba18b9607b84589ec588e08fc5d0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695343610570918334, guid: 8bf0ba18b9607b84589ec588e08fc5d0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695343610570918334, guid: 8bf0ba18b9607b84589ec588e08fc5d0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695343610570918334, guid: 8bf0ba18b9607b84589ec588e08fc5d0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8bf0ba18b9607b84589ec588e08fc5d0, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1750962021}
   - {fileID: 539294986}
-  - {fileID: 512023225}
+  - {fileID: 7927350582133820719}
   - {fileID: 1632693646}
   - {fileID: 135255996}
