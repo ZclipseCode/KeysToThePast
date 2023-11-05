@@ -21,17 +21,25 @@ public class PlayerMovement : MonoBehaviour
     private bool jumped = false;
 
     [SerializeField] GameObject groundCheck;
-    [SerializeField] bool isGrounded;
+    [SerializeField] bool isGrounded = true;
 
     [SerializeField] Rigidbody rb;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("floor"))
         {
             isGrounded = true;
         }
     }
+
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.CompareTag("floor"))
+    //    {
+    //        isGrounded = true;
+    //    }
+    //}
 
     private void OnTriggerExit(Collider other)
     {
@@ -97,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
         // Changes the height position of the player..
         if (jumped && isGrounded)
         {
-            playerVelocity.y += jumpHeight * -3.0f * gravityValue * Time.deltaTime;
+            playerVelocity.y = jumpHeight;
             print("jumped");
             //rb.AddForce(transform.up * jumpHeight, ForceMode.Impulse);
             //rb.velocity = new Vector2(rb.velocity.x, jumpHeight);

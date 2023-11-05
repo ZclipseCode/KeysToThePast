@@ -48,11 +48,16 @@ public class PlayerAttackStates : MonoBehaviour {
             anim.SetBool("isCrouching", false);
             anim.SetBool("isIdle", true);
             anim.SetBool("isJumping", false);
+            anim.SetBool("isWalking", false);
+        }
+        else if (moveState == MovementStates.WALKINGRIGHT || moveState == MovementStates.WALKINGLEFT && attackState == CombatState.NOATTACK)
+        {
+            anim.SetBool("isWalking", true);
+            anim.SetBool("isIdle", false);
         }
         else if(moveState == MovementStates.CROUCHING && attackState == CombatState.NOATTACK) {
             anim.SetBool("isCrouching", true);
             anim.SetBool("isIdle", false);
-            
         }
         else if(moveState == MovementStates.AIRBORNE && attackState == CombatState.NOATTACK)
         {
@@ -81,14 +86,17 @@ public class PlayerAttackStates : MonoBehaviour {
             if (moveState == MovementStates.STANDING || moveState == MovementStates.WALKINGLEFT || moveState == MovementStates.WALKINGRIGHT) {
                 attackState = CombatState.MIDDLEATTACK;
                 //Play special middle Animation
+                anim.SetBool("middleSpecial", true);
             }
             else if (moveState == MovementStates.CROUCHING) {
                 attackState = CombatState.LOWATTACK;
                 //play special low animation
+                anim.SetBool("lowSpecial", true);
             }
             else {
                 attackState = CombatState.OVERHEAD;
                 //play special overhead animation
+                anim.SetBool("airSpecial", true);
             }
         }
         else {
@@ -96,6 +104,9 @@ public class PlayerAttackStates : MonoBehaviour {
             anim.SetBool("middleAttack", false);
             anim.SetBool("lowAttack", false);
             anim.SetBool("airAttack", false);
+            anim.SetBool("middleSpecial", false);
+            anim.SetBool("lowSpecial", false);
+            anim.SetBool("airSpecial", false);
         }
     }
 
