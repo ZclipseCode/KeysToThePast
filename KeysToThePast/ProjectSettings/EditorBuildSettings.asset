@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Brian/Scenes/CharacterCustomizer.unity
     guid: 3f02b96672a810447a1bd564b5d71d90
+  - enabled: 1
+    path: Assets/Brian/Scenes/ParallaxBackround.unity
+    guid: 38f9f59c73ad74e44a3ac3eb7f83b3ec
   m_configObjects: {}

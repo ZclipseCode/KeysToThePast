@@ -3,30 +3,56 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class SelectFighter : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI prompt;
-    InputAction[] inputs = new InputAction[2];
-    GameObject[] fighters = new GameObject[2];
+    [SerializeField] string fightScene;
+    public static Player[] players;
     int currentPlayerIndex;
-    PlayerInputManager inputManager;
+    InputAction tempInput;
+    GameObject tempFighter;
+    //PlayerInputManager inputManager;
+    public delegate void PlayerJoinDelegate(InputAction action);
+    public static PlayerJoinDelegate playerJoin;
+
+    private void Awake()
+    {
+        playerJoin += AddInput;
+
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Start()
     {
+        players = new Player[2];
         ReadyForInput();
     }
 
     public void AddInput(InputAction input)
     {
-        inputs[currentPlayerIndex] = input;
+        tempInput = input;
+
+        ReadyForFighter();
     }
 
     public void AddFighter(GameObject fighter)
     {
-        fighters[currentPlayerIndex] = fighter;
+        tempFighter = fighter;
+
+        players[currentPlayerIndex] = new Player(currentPlayerIndex + 1, tempInput, tempFighter);
 
         currentPlayerIndex++;
+
+        if (currentPlayerIndex < players.Length)
+        {
+            ReadyForInput();
+        }
+        else
+        {
+            SceneManager.LoadScene(fightScene);
+        }
     }
 
     public void ReadyForInput()
@@ -37,5 +63,10 @@ public class SelectFighter : MonoBehaviour
     public void ReadyForFighter()
     {
         prompt.text = $"Player {currentPlayerIndex + 1}: choose your fighter!";
+    }
+
+    private void OnDestroy()
+    {
+        playerJoin -= AddInput;
     }
 }

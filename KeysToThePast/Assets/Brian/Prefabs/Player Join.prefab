@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4391068786581433966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7107788751864187449}
+  - component: {fileID: 3459600362624478915}
+  - component: {fileID: 5391946013150224693}
+  m_Layer: 0
+  m_Name: Player Join
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7107788751864187449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4391068786581433966}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 811.42896, y: 688.33215, z: -5.132748}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3459600362624478915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4391068786581433966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00102e517ffb104fb261690153f6654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5391946013150224693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4391068786581433966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 04177dafcec3eab4b910bc2477c771eb, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a1697faf-99d1-4ae3-b0ae-e88665814069
+    m_ActionName: Player/Movement[/Keyboard/x,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b5f552f6-cd01-4d72-8039-0b63fe991130
+    m_ActionName: Player/Jump[/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7e8ab1ab-c798-424a-9b04-7c439a5d8307
+    m_ActionName: Player/Basic Attack[/Keyboard/u]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7d649313-c954-493c-8a94-e2a6b9683ab3
+    m_ActionName: Player/Special Attack[/Keyboard/i]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 19ebf2ad-6041-4ed4-9a72-295cc99ad6ba
+    m_ActionName: Player/Block[/Keyboard/o]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e3317d19-0749-4ad5-b617-556d5dd722b4
+    m_ActionName: Player/Grab[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 328cf838-986f-41b1-a1f2-85a1d0fdb090
+    m_ActionName: Player/Super[/Keyboard/j]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c0ddada0-13df-49b4-a60b-2ae70cabd37c
+    m_ActionName: Menu/Movement
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 780d8705-373b-4e3d-a020-17166c6c582c
+    m_ActionName: Menu/Select
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8bbd0667-f02d-41de-9e6b-c43845ab290f
+    m_ActionName: Menu/Back
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

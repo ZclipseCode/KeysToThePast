@@ -255,7 +255,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 0}
+  m_PlayerPrefab: {fileID: 4391068786581433966, guid: 3d37a6a0472d1c343b9e6ee6405f9a85, type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1
@@ -278,6 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompt: {fileID: 1839311132}
+  fightScene: ParallaxBackground
 --- !u!4 &512023225
 Transform:
   m_ObjectHideFlags: 0
@@ -469,7 +470,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1350206894}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 512023224}
+        m_TargetAssemblyTypeName: SelectFighter, Assembly-CSharp
+        m_MethodName: AddFighter
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1350206891}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1350206894
 MonoBehaviour:
   m_ObjectHideFlags: 0

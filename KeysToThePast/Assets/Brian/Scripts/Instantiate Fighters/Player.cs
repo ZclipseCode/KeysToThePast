@@ -7,9 +7,9 @@ using UnityEngine.InputSystem;
 
 public class Player
 {
-    int playerId;
-    InputAction input;
-    GameObject fighter;
+    public int playerId;
+    public InputAction input;
+    public GameObject fighter;
 
     public Player(int playerId, InputAction input, GameObject fighter)
     {

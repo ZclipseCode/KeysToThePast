@@ -5,11 +5,13 @@ using UnityEngine.InputSystem;
 
 public class InstantiateFighters : MonoBehaviour
 {
-    PlayerInputManager inputManager;
+    [SerializeField] Transform[] spawnLocations = new Transform[2];
 
     private void Start()
     {
-        inputManager = GetComponent<PlayerInputManager>();
-        inputManager.JoinPlayer();
+        for (int i = 0; i < SelectFighter.players.Length; i++)
+        {
+            Instantiate(SelectFighter.players[i].fighter, spawnLocations[i].position, Quaternion.identity);
+        }
     }
 }
