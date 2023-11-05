@@ -26,6 +26,14 @@ public class CustomCharacter : MonoBehaviour
     bool shirtRgbMode = true;
     bool pantsRgbMode = true;
 
+    // last second
+    public delegate void SetTextureDelegate(Texture2D texture);
+    public static SetTextureDelegate setTexture;
+    public delegate void SetColorDelegate(Color color);
+    public static SetColorDelegate setColor;
+    [SerializeField] SkinnedMeshRenderer mesh;
+    bool meshRgbMode = true;
+
     private void Awake()
     {
         setHat += SetHat;
@@ -33,6 +41,9 @@ public class CustomCharacter : MonoBehaviour
         setPantsColor += SetPantsColor;
         setShirtTexture += SetShirtTexture;
         setPantsTexture += SetPantsTexture;
+
+        setTexture += SetTexture;
+        setColor += SetMeshColor;
     }
 
     private void Start()
@@ -79,6 +90,22 @@ public class CustomCharacter : MonoBehaviour
         pantsRgbMode = false;
     }
 
+    public void SetTexture(Texture2D texture)
+    {
+        mesh.material.mainTexture = texture;
+
+        mesh.material.color = Color.white;
+        meshRgbMode = false;
+    }
+
+    public void SetMeshColor(Color color)
+    {
+        if (meshRgbMode)
+        {
+            mesh.material.color = color;
+        }
+    }
+
     private void OnDestroy()
     {
         setHat -= SetHat;
@@ -86,5 +113,8 @@ public class CustomCharacter : MonoBehaviour
         setPantsColor -= SetPantsColor;
         setShirtTexture -= SetShirtTexture;
         setPantsTexture -= SetPantsTexture;
+
+        setTexture -= SetTexture;
+        setColor -= SetMeshColor;
     }
 }

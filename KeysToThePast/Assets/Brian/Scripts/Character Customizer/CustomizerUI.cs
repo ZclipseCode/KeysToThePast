@@ -21,6 +21,12 @@ public class CustomizerUI : MonoBehaviour
     [SerializeField] Slider pantsBlueSlider;
     Color pantsColor;
 
+    // last second
+    [SerializeField] Slider meshRedSlider;
+    [SerializeField] Slider meshGreenSlider;
+    [SerializeField] Slider meshBlueSlider;
+    Color meshColor;
+
     private void Start()
     {
         hatText.text = $"Hat {currentHatIndex + 1}/{hats.Count}";
@@ -74,6 +80,12 @@ public class CustomizerUI : MonoBehaviour
         CustomCharacter.setPantsColor(pantsColor);
     }
 
+    public void SetMeshColors()
+    {
+        meshColor = new Color(pantsRedSlider.value, pantsGreenSlider.value, pantsBlueSlider.value);
+        CustomCharacter.setColor(meshColor);
+    }
+
     public void UploadShirt()
     {
         OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -101,6 +113,21 @@ public class CustomizerUI : MonoBehaviour
             Texture2D selectedTexture = LoadTexture(selectedFilePath);
 
             CustomCharacter.setPantsTexture(selectedTexture);
+        }
+    }
+
+    public void UploadMesh()
+    {
+        OpenFileDialog openFileDialog = new OpenFileDialog();
+        openFileDialog.Filter = "Image Files|*.jpg;*.png;*.jpeg;*.bmp|All Files|*.*";
+
+        if (openFileDialog.ShowDialog() == DialogResult.OK)
+        {
+            string selectedFilePath = openFileDialog.FileName;
+
+            Texture2D selectedTexture = LoadTexture(selectedFilePath);
+
+            CustomCharacter.setTexture(selectedTexture);
         }
     }
 
