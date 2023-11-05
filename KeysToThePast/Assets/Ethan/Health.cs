@@ -31,6 +31,6 @@ public class Health : MonoBehaviour{
     }
 
     private void Death() {
-        //based on what player dies do something
+        Destroy(gameObject);
     }
 }
