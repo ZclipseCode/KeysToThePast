@@ -1,20 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HurtBox : MonoBehaviour{
     [SerializeField] int damage;
     [SerializeField] PlayerAttackStates pas1;
     private void OnTriggerEnter(Collider other) {
-        if (other.GetComponent<Player>().playerId != gameObject.GetComponent<Player>().playerId) { //if the other player is hit
-            if (other.GetComponent<PlayerAttackStates>().attackState == CombatState.LOWBLOCK && (pas1.attackState == CombatState.MIDDLEATTACK || pas1.attackState == CombatState.LOWATTACK)) {
-                other.GetComponent<Health>().Block();
+        if (other.GetComponentInParent<Player>().playerId != gameObject.GetComponentInParent<Player>().playerId) { //if the other player is hit
+            if (other.GetComponentInParent<PlayerAttackStates>().attackState == CombatState.LOWBLOCK && (pas1.attackState == CombatState.MIDDLEATTACK || pas1.attackState == CombatState.LOWATTACK)) {
+                other.GetComponentInParent<Health>().Block();
             }
-            else if (other.GetComponent<PlayerAttackStates>().attackState == CombatState.STANDINGBLOCK && (pas1.attackState == CombatState.OVERHEAD || pas1.attackState == CombatState.MIDDLEATTACK)) {
-                other.GetComponent<Health>().Block();
+            else if (other.GetComponentInParent<PlayerAttackStates>().attackState == CombatState.STANDINGBLOCK && (pas1.attackState == CombatState.OVERHEAD || pas1.attackState == CombatState.MIDDLEATTACK)) {
+                other.GetComponentInParent<Health>().Block();
             }
             else {
-                other.GetComponent<Health>().TakeDamage(damage);
+                other.GetComponentInParent<Health>().TakeDamage(damage);
             }
         }
     }
