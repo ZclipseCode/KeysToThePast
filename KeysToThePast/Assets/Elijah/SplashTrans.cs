@@ -20,14 +20,13 @@ public class SplashTrans : MonoBehaviour
     {
         float increment = fadeSpeed * Time.deltaTime;
 
-        while (logo.color.a < 255)
+        while (logo.color.a < 1)
         {
-            logo.color = new Color(255, 255, 255, logo.color.a + increment);
+            logo.color = new Color(1, 1, 1, logo.color.a + increment);
             yield return null;
         }
 
-        Debug.Log("a");
-        logo.color = new Color(255, 255, 255, 255);
+        logo.color = new Color(1, 1, 1, 1);
         yield return new WaitForSeconds(displayTime);
 
         SceneManager.LoadScene(menus);
