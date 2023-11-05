@@ -57,6 +57,6 @@ public class MenuManager : MonoBehaviour{
     }
 
     public void Custom() {
-        //go to customize scene
+        SceneManager.LoadScene("CharacterCustomizer");
     }
 }
