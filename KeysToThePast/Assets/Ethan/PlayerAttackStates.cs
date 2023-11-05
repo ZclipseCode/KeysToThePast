@@ -54,15 +54,21 @@ public class PlayerAttackStates : MonoBehaviour {
         {
             anim.SetBool("isWalking", true);
             anim.SetBool("isIdle", false);
+            anim.SetBool("isJumping", false);
+            anim.SetBool("isCrouching", false);
         }
         else if(moveState == MovementStates.CROUCHING && attackState == CombatState.NOATTACK) {
             anim.SetBool("isCrouching", true);
             anim.SetBool("isIdle", false);
+            anim.SetBool("isJumping", false);
+            anim.SetBool("isWalking", false);
         }
         else if(moveState == MovementStates.AIRBORNE && attackState == CombatState.NOATTACK)
         {
             anim.SetBool("isJumping", true);
             anim.SetBool("isIdle", false);
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isCrouching", false);
         }
 
         if (attacked && attackState == CombatState.NOATTACK) {
@@ -99,6 +105,19 @@ public class PlayerAttackStates : MonoBehaviour {
                 anim.SetBool("airSpecial", true);
             }
         }
+        else if (block && attackState == CombatState.NOATTACK)
+        {
+            if (moveState == MovementStates.STANDING || moveState == MovementStates.WALKINGLEFT || moveState == MovementStates.WALKINGRIGHT)
+            {
+                attackState = CombatState.STANDINGBLOCK;
+                //Play blocking Animation
+                anim.SetBool("highBlock", true);
+            }
+            else if(moveState == MovementStates.CROUCHING)
+            {
+                anim.SetBool("lowBlock", true);
+            }
+        }
         else {
             attackState = CombatState.NOATTACK;
             anim.SetBool("middleAttack", false);
@@ -107,6 +126,8 @@ public class PlayerAttackStates : MonoBehaviour {
             anim.SetBool("middleSpecial", false);
             anim.SetBool("lowSpecial", false);
             anim.SetBool("airSpecial", false);
+            anim.SetBool("highBlock", false);
+            anim.SetBool("lowBlock", false);
         }
     }
 
