@@ -16,8 +16,10 @@ public class PlayerAttackStates : MonoBehaviour {
     private bool specialed = false;
     private bool block = false;
     private bool grabbed = false;
-    [Header("Animation")]
-    [SerializeField] Animator anim;
+
+    Animator anim;
+
+    public bool isAnimating;
 
     public void OnAttack(InputAction.CallbackContext context) {
         attacked = context.action.triggered;
@@ -34,27 +36,45 @@ public class PlayerAttackStates : MonoBehaviour {
 
     void Start() {
         movementScript = this.gameObject.GetComponent<PlayerMovement>();
+
+        anim = gameObject.GetComponent<Animator>();
     }
 
     void Update() {
         moveState = movementScript.mState;
-        if(attackState == CombatState.NOATTACK) {
-            anim.SetInteger("AnimNum", 0);
+
+        if(moveState == MovementStates.STANDING && attackState == CombatState.NOATTACK)
+        {
+            anim.SetBool("isCrouching", false);
+            anim.SetBool("isIdle", true);
+            anim.SetBool("isJumping", false);
         }
+        else if(moveState == MovementStates.CROUCHING && attackState == CombatState.NOATTACK) {
+            anim.SetBool("isCrouching", true);
+            anim.SetBool("isIdle", false);
+            
+        }
+        else if(moveState == MovementStates.AIRBORNE && attackState == CombatState.NOATTACK)
+        {
+            anim.SetBool("isJumping", true);
+            anim.SetBool("isIdle", false);
+        }
+
         if (attacked && attackState == CombatState.NOATTACK) {
             if (moveState == MovementStates.STANDING || moveState == MovementStates.WALKINGLEFT || moveState == MovementStates.WALKINGRIGHT) {
                 attackState = CombatState.MIDDLEATTACK;
                 //Play Punch Animation
+                anim.SetBool("middleAttack", true);
             }
             else if (moveState == MovementStates.CROUCHING) {
                 attackState = CombatState.LOWATTACK;
                 //play lowattack animation
+                anim.SetBool("lowAttack", true);
             }
             else {
                 attackState = CombatState.OVERHEAD;
-                //play overhead animation
-                anim.SetInteger("AnimNum", 1);
-                
+                // overHeadAttack animation
+                anim.SetBool("airAttack", true);
             }
         }
         else if (specialed && attackState == CombatState.NOATTACK) {
@@ -71,9 +91,12 @@ public class PlayerAttackStates : MonoBehaviour {
                 //play special overhead animation
             }
         }
-        //else {
-        //    attackState = CombatState.NOATTACK;
-        //}
+        else {
+            attackState = CombatState.NOATTACK;
+            anim.SetBool("middleAttack", false);
+            anim.SetBool("lowAttack", false);
+            anim.SetBool("airAttack", false);
+        }
     }
 
 

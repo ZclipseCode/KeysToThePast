@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent (typeof(CharacterController))]
+[RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
     private CharacterController controller;
     private Vector3 playerVelocity;
-    private bool groundedPlayer;
+    //private bool groundedPlayer;
 
     [SerializeField]
     public MovementStates mState;
@@ -20,9 +20,31 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movementInput = Vector2.zero;
     private bool jumped = false;
 
+    [SerializeField] GameObject groundCheck;
+    [SerializeField] bool isGrounded;
+
+    [SerializeField] Rigidbody rb;
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("floor"))
+        {
+            isGrounded = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("floor"))
+        {
+            isGrounded = false;
+        }
+    }
+
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
+        rb = gameObject.GetComponent<Rigidbody>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -38,19 +60,19 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        groundedPlayer = controller.isGrounded;
+        //groundedPlayer = controller.isGrounded;
         
-        if (groundedPlayer && playerVelocity.y < 0)
-        {
-            playerVelocity.y = 0f;
-        }
+        //if (isGrounded && playerVelocity.y < 0)
+        //{
+        //    playerVelocity.y = 0f;
+        //}
 
         //print(movementInput.x);
 
         
         Vector3 move = new Vector3(movementInput.x, 0, 0);
         
-        if (!groundedPlayer) {
+        if (!isGrounded) {
             mState = MovementStates.AIRBORNE;
         }
         else if (movementInput.y < -.5) {
@@ -73,9 +95,12 @@ public class PlayerMovement : MonoBehaviour
 
 
         // Changes the height position of the player..
-        if (jumped && groundedPlayer)
+        if (jumped && isGrounded)
         {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            playerVelocity.y += jumpHeight * -3.0f * gravityValue * Time.deltaTime;
+            print("jumped");
+            //rb.AddForce(transform.up * jumpHeight, ForceMode.Impulse);
+            //rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
