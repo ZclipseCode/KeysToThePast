@@ -35,6 +35,8 @@ public class Health : MonoBehaviour{
             pas.attackState = CombatState.INCOMBO;
             rb.AddForce(0, damage, 0, ForceMode.Impulse);
         }
+
+        canBeDamaged = true;
     }
 
     public void Block() {
