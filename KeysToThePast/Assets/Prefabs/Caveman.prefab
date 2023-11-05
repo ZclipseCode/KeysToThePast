@@ -100,6 +100,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   pas1: {fileID: 7215807488124659478}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &240368485736881722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,6 +1066,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   pas1: {fileID: 7215807488124659478}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &4095697714975305602
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,6 +1382,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   pas1: {fileID: 7215807488124659478}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &5326165053641229647
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,6 +2345,7 @@ GameObject:
   - component: {fileID: 6880526252831307842}
   - component: {fileID: 5497223384663337876}
   - component: {fileID: 5675365561954894618}
+  - component: {fileID: 4764681404972574597}
   m_Layer: 0
   m_Name: Caveman
   m_TagString: Untagged
@@ -2651,6 +2661,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &4764681404972574597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8335013473285524809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57905ce14974311418c206955c8fa416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 100
+  HP: 0
+  pas: {fileID: 7215807488124659478}
+  rb: {fileID: 5675365561954894618}
 --- !u!1 &8523066866416658692
 GameObject:
   m_ObjectHideFlags: 0
@@ -2751,6 +2777,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   pas1: {fileID: 7215807488124659478}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &8634332803207821742
 GameObject:
   m_ObjectHideFlags: 0
