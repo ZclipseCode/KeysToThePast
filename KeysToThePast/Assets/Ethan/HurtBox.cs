@@ -9,19 +9,23 @@ public class HurtBox : MonoBehaviour{
     [SerializeField] LayerMask enemyLayer;
 
     private void OnTriggerEnter(Collider other) {
-        //if (other.GetComponentInParent<Player>().playerId != gameObject.GetComponentInParent<Player>().playerId) { //if the other player is hit
-        //    if (other.GetComponentInParent<PlayerAttackStates>().attackState == CombatState.LOWBLOCK && (pas1.attackState == CombatState.MIDDLEATTACK || pas1.attackState == CombatState.LOWATTACK)) {
+        //if (other.GetComponentInParent<Player>().playerId != gameObject.GetComponentInParent<Player>().playerId) //if the other player is hit
+        //{
+        //    if (other.GetComponentInParent<PlayerAttackStates>().attackState == CombatState.LOWBLOCK && (pas1.attackState == CombatState.MIDDLEATTACK || pas1.attackState == CombatState.LOWATTACK))
+        //    {
         //        other.GetComponentInParent<Health>().Block();
         //    }
-        //    else if (other.GetComponentInParent<PlayerAttackStates>().attackState == CombatState.STANDINGBLOCK && (pas1.attackState == CombatState.OVERHEAD || pas1.attackState == CombatState.MIDDLEATTACK)) {
+        //    else if (other.GetComponentInParent<PlayerAttackStates>().attackState == CombatState.STANDINGBLOCK && (pas1.attackState == CombatState.OVERHEAD || pas1.attackState == CombatState.MIDDLEATTACK))
+        //    {
         //        other.GetComponentInParent<Health>().Block();
         //    }
-        //    else {
+        //    else
+        //    {
         //        other.GetComponentInParent<Health>().TakeDamage(damage);
         //    }
         //}
 
-        if (other.gameObject.layer == enemyLayer) //if the other player is hit
+        if (other.GetComponentInParent<PlayerInformation>().info.playerId != gameObject.GetComponentInParent<PlayerInformation>().info.playerId) //if the other player is hit
         {
             if (other.GetComponentInParent<PlayerAttackStates>().attackState == CombatState.LOWBLOCK && (pas1.attackState == CombatState.MIDDLEATTACK || pas1.attackState == CombatState.LOWATTACK))
             {
