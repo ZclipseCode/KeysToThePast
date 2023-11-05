@@ -406,6 +406,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e3317d19-0749-4ad5-b617-556d5dd722b4
     m_ActionName: Player/Grab[/Keyboard/p,/SwitchProControllerHID/rightShoulder,/XInputControllerWindows1/rightShoulder,/SwitchProControllerHID/leftShoulder,/XInputControllerWindows1/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 328cf838-986f-41b1-a1f2-85a1d0fdb090
+    m_ActionName: Player/Super[/Keyboard/j]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c0ddada0-13df-49b4-a60b-2ae70cabd37c
+    m_ActionName: Menu/Movement
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 780d8705-373b-4e3d-a020-17166c6c582c
+    m_ActionName: Menu/Select
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8bbd0667-f02d-41de-9e6b-c43845ab290f
+    m_ActionName: Menu/Back
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -484,6 +500,7 @@ MonoBehaviour:
   attackState: 0
   moveState: 0
   movementScript: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!1 &4750973248108882755
 GameObject:
   m_ObjectHideFlags: 0
