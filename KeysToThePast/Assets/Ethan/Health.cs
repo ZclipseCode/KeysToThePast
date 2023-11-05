@@ -26,6 +26,10 @@ public class Health : MonoBehaviour{
         }
     }
 
+    public void Block() {
+        HP -= 1;
+    }
+
     private void Death() {
         //based on what player dies do something
     }
