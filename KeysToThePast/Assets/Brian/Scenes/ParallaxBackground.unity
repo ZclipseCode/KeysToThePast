@@ -553,6 +553,7 @@ MonoBehaviour:
   spawnLocations:
   - {fileID: 1145706750}
   - {fileID: 477935877}
+  eightesGuy: {fileID: 8423456334043772801, guid: 0c59555a9c89dc94c8a8502dd5a86acb, type: 3}
 --- !u!1 &959785003
 GameObject:
   m_ObjectHideFlags: 0
