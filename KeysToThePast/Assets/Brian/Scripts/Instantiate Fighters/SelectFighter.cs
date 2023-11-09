@@ -38,19 +38,23 @@ public class SelectFighter : MonoBehaviour
 
     public void AddFighter(GameObject fighter)
     {
-        tempFighter = fighter;
-
-        players[currentPlayerIndex] = new Player(currentPlayerIndex + 1, tempInput, tempFighter);
-
-        currentPlayerIndex++;
-
-        if (currentPlayerIndex < players.Length)
+        if (tempInput != null)
         {
-            ReadyForInput();
-        }
-        else
-        {
-            SceneManager.LoadScene(fightScene);
+            tempFighter = fighter;
+
+            players[currentPlayerIndex] = new Player(currentPlayerIndex + 1, tempInput, tempFighter);
+
+            currentPlayerIndex++;
+
+            if (currentPlayerIndex < players.Length)
+            {
+                ReadyForInput();
+                tempInput = null;
+            }
+            else
+            {
+                SceneManager.LoadScene(fightScene);
+            }
         }
     }
 
