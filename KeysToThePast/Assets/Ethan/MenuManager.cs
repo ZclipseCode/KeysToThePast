@@ -66,6 +66,6 @@ public class MenuManager : MonoBehaviour{
 
     public void Custom() {
         sound.Play();
-        SceneManager.LoadScene("CharacterCustomizer");
+        SceneManager.LoadScene("FinalCharacterCustomizer");
     }
 }

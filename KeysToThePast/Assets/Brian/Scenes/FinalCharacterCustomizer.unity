@@ -2176,7 +2176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 420, y: -308}
+  m_AnchoredPosition: {x: 420, y: -160}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &714149002
@@ -2249,7 +2249,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 375500021}
         m_TargetAssemblyTypeName: CustomizerUI, Assembly-CSharp
-        m_MethodName: SetPantsColors
+        m_MethodName: SetMeshColors
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2838,7 +2838,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 375500021}
         m_TargetAssemblyTypeName: CustomizerUI, Assembly-CSharp
-        m_MethodName: SetPantsColors
+        m_MethodName: SetMeshColors
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4507,7 +4507,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -309, y: 6.449997}
+  m_AnchoredPosition: {x: -259, y: 6.449997}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1518407540
@@ -6189,7 +6189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1967475564
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6256,7 +6256,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 375500021}
         m_TargetAssemblyTypeName: CustomizerUI, Assembly-CSharp
-        m_MethodName: UploadPants
+        m_MethodName: UploadMesh
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6662,7 +6662,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 375500021}
         m_TargetAssemblyTypeName: CustomizerUI, Assembly-CSharp
-        m_MethodName: SetPantsColors
+        m_MethodName: SetMeshColors
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

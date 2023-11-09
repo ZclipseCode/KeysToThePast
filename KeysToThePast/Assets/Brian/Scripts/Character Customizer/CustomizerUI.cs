@@ -82,7 +82,7 @@ public class CustomizerUI : MonoBehaviour
 
     public void SetMeshColors()
     {
-        meshColor = new Color(pantsRedSlider.value, pantsGreenSlider.value, pantsBlueSlider.value);
+        meshColor = new Color(meshRedSlider.value, meshGreenSlider.value, meshBlueSlider.value);
         CustomCharacter.setColor(meshColor);
     }
 
