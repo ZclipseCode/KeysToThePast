@@ -5,17 +5,20 @@ using UnityEngine;
 public class ParallaxView : MonoBehaviour
 {
     float startPosition;
-    [SerializeField] Transform cam;
+    Camera cam;
+    Transform camTransform;
     [SerializeField] float parallaxEffect;
 
     void Start()
     {
+        cam = Camera.main;
+        camTransform = cam.transform;
         startPosition = transform.position.x;
     }
 
     void FixedUpdate()
     {
-        float distance = cam.transform.position.x * parallaxEffect;
+        float distance = camTransform.transform.position.x * parallaxEffect;
 
         transform.position = new Vector3(startPosition + distance, transform.position.y, transform.position.z);
     }

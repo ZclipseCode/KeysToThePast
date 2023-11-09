@@ -12,13 +12,18 @@ public class InstantiateFighters : MonoBehaviour
     [Header("Environments")]
     [SerializeField] GameObject caveman;
     [SerializeField] GameObject knight;
-    [SerializeField] GameObject brAIn;
+    [SerializeField] GameObject brain;
     [SerializeField] GameObject timeTraveler;
-    [SerializeField] GameObject cavemanEnvironement;
-    [SerializeField] GameObject knightEnvironment;
-    [SerializeField] GameObject eightesGuyEnvironment;
-    [SerializeField] GameObject brAInEnvironment;
-    [SerializeField] GameObject timeTravelerEnvironment;
+    [SerializeField] GameObject leftCavemanEnvironement;
+    [SerializeField] GameObject leftKnightEnvironment;
+    [SerializeField] GameObject leftEightesGuyEnvironment;
+    [SerializeField] GameObject leftBrainEnvironment;
+    [SerializeField] GameObject leftTimeTravelerEnvironment;
+    [SerializeField] GameObject rightCavemanEnvironement;
+    [SerializeField] GameObject rightKnightEnvironment;
+    [SerializeField] GameObject rightEightesGuyEnvironment;
+    [SerializeField] GameObject rightBrainEnvironment;
+    [SerializeField] GameObject rightTimeTravelerEnvironment;
 
 
     private void Start()
@@ -54,37 +59,70 @@ public class InstantiateFighters : MonoBehaviour
 
         CameraFollowPlayers.addPlayerToCamera(player1.transform);
         CameraFollowPlayers.addPlayerToCamera(player2.transform);
+
+        CreateEnvironment(SelectFighter.players[0].fighter, new Vector3(-6, 5, 14.25f), true);
+        CreateEnvironment(SelectFighter.players[1].fighter, new Vector3(-6, 5, 14.25f), false);
     }
 
-    public void CreateEnvironment(GameObject fighter, Transform position)
+    public void CreateEnvironment(GameObject fighter, Vector3 position, bool isLeft)
     {
         GameObject environement;
 
-        if (fighter == caveman)
+        if (isLeft)
         {
-            environement = cavemanEnvironement;
-        }
-        else if (fighter == knight)
-        {
-            environement = knightEnvironment;
-        }
-        else if (fighter == eightesGuy)
-        {
-            environement = eightesGuyEnvironment;
-        }
-        else if (fighter = brAIn)
-        {
-            environement = brAInEnvironment;
-        }
-        else if (fighter == timeTraveler)
-        {
-            environement = timeTravelerEnvironment;
+            if (fighter == caveman)
+            {
+                environement = leftCavemanEnvironement;
+            }
+            else if (fighter == knight)
+            {
+                environement = leftKnightEnvironment;
+            }
+            else if (fighter == eightesGuy)
+            {
+                environement = leftEightesGuyEnvironment;
+            }
+            else if (fighter = brain)
+            {
+                environement = leftBrainEnvironment;
+            }
+            else if (fighter == timeTraveler)
+            {
+                environement = leftTimeTravelerEnvironment;
+            }
+            else
+            {
+                environement = leftCavemanEnvironement;
+            }
         }
         else
         {
-            environement = cavemanEnvironement;
+            if (fighter == caveman)
+            {
+                environement = rightCavemanEnvironement;
+            }
+            else if (fighter == knight)
+            {
+                environement = rightKnightEnvironment;
+            }
+            else if (fighter == eightesGuy)
+            {
+                environement = rightEightesGuyEnvironment;
+            }
+            else if (fighter = brain)
+            {
+                environement = rightBrainEnvironment;
+            }
+            else if (fighter == timeTraveler)
+            {
+                environement = rightTimeTravelerEnvironment;
+            }
+            else
+            {
+                environement = rightCavemanEnvironement;
+            }
         }
 
-        Instantiate(environement, position.position, Quaternion.identity);
+        Instantiate(environement, position, Quaternion.identity);
     }
 }
