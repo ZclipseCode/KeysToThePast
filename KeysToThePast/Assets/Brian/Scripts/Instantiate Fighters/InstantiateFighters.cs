@@ -13,7 +13,7 @@ public class InstantiateFighters : MonoBehaviour
     [SerializeField] GameObject caveman;
     [SerializeField] GameObject knight;
     [SerializeField] GameObject brain;
-    [SerializeField] GameObject timeTraveler;
+    GameObject timeTraveler;
     [SerializeField] GameObject leftCavemanEnvironement;
     [SerializeField] GameObject leftKnightEnvironment;
     [SerializeField] GameObject leftEightesGuyEnvironment;
@@ -28,6 +28,7 @@ public class InstantiateFighters : MonoBehaviour
 
     private void Start()
     {
+        timeTraveler = GameManager.timeTraveler;
         CreateFighters();
     }
 

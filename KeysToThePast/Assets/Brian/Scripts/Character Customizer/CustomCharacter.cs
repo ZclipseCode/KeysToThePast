@@ -34,6 +34,10 @@ public class CustomCharacter : MonoBehaviour
     [SerializeField] SkinnedMeshRenderer mesh;
     bool meshRgbMode = true;
 
+    [SerializeField] MeshRenderer head;
+    public delegate void SetHeadTextureDelegate(Texture2D texture);
+    public static SetHeadTextureDelegate setHeadTexture;
+
     private void Awake()
     {
         setHat += SetHat;
@@ -44,6 +48,8 @@ public class CustomCharacter : MonoBehaviour
 
         setTexture += SetTexture;
         setColor += SetMeshColor;
+
+        setHeadTexture += SetHeadTexture;
     }
 
     private void Start()
@@ -54,7 +60,7 @@ public class CustomCharacter : MonoBehaviour
     public void SetHat(GameObject h)
     {
         Destroy(hat);
-        hat = Instantiate(h, transform);
+        hat = Instantiate(h, hatPosition);
         hat.transform.position = hatPosition.position;
     }
 
@@ -106,6 +112,14 @@ public class CustomCharacter : MonoBehaviour
         }
     }
 
+    public void SetHeadTexture(Texture2D texture)
+    {
+        head.material.mainTexture = texture;
+
+        //mesh.material.color = Color.white;
+        //meshRgbMode = false;
+    }
+
     private void OnDestroy()
     {
         setHat -= SetHat;
@@ -116,5 +130,7 @@ public class CustomCharacter : MonoBehaviour
 
         setTexture -= SetTexture;
         setColor -= SetMeshColor;
+
+        setHeadTexture -= SetHeadTexture;
     }
 }

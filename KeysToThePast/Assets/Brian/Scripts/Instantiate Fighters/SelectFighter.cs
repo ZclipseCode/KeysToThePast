@@ -58,6 +58,28 @@ public class SelectFighter : MonoBehaviour
         }
     }
 
+    public void AddCustomFighter()
+    {
+        if (tempInput != null)
+        {
+            tempFighter = GameManager.timeTraveler;
+
+            players[currentPlayerIndex] = new Player(currentPlayerIndex + 1, tempInput, tempFighter);
+
+            currentPlayerIndex++;
+
+            if (currentPlayerIndex < players.Length)
+            {
+                ReadyForInput();
+                tempInput = null;
+            }
+            else
+            {
+                SceneManager.LoadScene(fightScene);
+            }
+        }
+    }
+
     public void ReadyForInput()
     {
         prompt.text = $"Player {currentPlayerIndex + 1}: Press Any Button!";

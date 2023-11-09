@@ -1924,11 +1924,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 356698215}
         m_TargetAssemblyTypeName: SelectFighter, Assembly-CSharp
-        m_MethodName: AddFighter
-        m_Mode: 2
+        m_MethodName: AddCustomFighter
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 6885836028771929915, guid: 173c455086f39b242a84ebc218cee35e, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7199,6 +7199,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933531542}
   m_CullTransparentMesh: 1
+--- !u!1001 &1958111269
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3901350228172341876, guid: ea78cf718ae39814aa9fbff9c6cad583, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901350228172341876, guid: ea78cf718ae39814aa9fbff9c6cad583, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901350228172341876, guid: ea78cf718ae39814aa9fbff9c6cad583, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901350228172341876, guid: ea78cf718ae39814aa9fbff9c6cad583, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901350228172341876, guid: ea78cf718ae39814aa9fbff9c6cad583, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901350228172341876, guid: ea78cf718ae39814aa9fbff9c6cad583, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901350228172341876, guid: ea78cf718ae39814aa9fbff9c6cad583, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901350228172341876, guid: ea78cf718ae39814aa9fbff9c6cad583, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901350228172341876, guid: ea78cf718ae39814aa9fbff9c6cad583, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901350228172341876, guid: ea78cf718ae39814aa9fbff9c6cad583, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567952675781520413, guid: ea78cf718ae39814aa9fbff9c6cad583, type: 3}
+      propertyPath: m_Name
+      value: Game Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ea78cf718ae39814aa9fbff9c6cad583, type: 3}
 --- !u!1 &1974543523
 GameObject:
   m_ObjectHideFlags: 0
@@ -7711,3 +7768,4 @@ SceneRoots:
   - {fileID: 650046959}
   - {fileID: 1778908587}
   - {fileID: 1043164018}
+  - {fileID: 1958111269}
