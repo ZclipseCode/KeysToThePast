@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Elijah/Splash Screen.unity
+    guid: fa4a940cb76098b4a85cb51710c6a537
+  - enabled: 1
     path: Assets/Elijah/ElijahMenus.unity
     guid: 02d631d3b7b65984e81ead2efa086c16
   - enabled: 1
