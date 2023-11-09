@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Brian/Scenes/FinalCharacterCustomizer.unity
     guid: 7fac7865843699344ab2a4d4f9c4bba0
   - enabled: 1
-    path: Assets/Brian/Scenes/ParallaxBackground.unity
-    guid: 38f9f59c73ad74e44a3ac3eb7f83b3ec
+    path: Assets/Brian/Scenes/Arena.unity
+    guid: bbdba2c773ece84429171deb43ca1a51
   m_configObjects: {}
