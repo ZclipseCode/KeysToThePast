@@ -39,5 +39,8 @@ public class InstantiateFighters : MonoBehaviour
         }
         PlayerInformation player2Info = player2.AddComponent<PlayerInformation>();
         player2Info.info = SelectFighter.players[1];
+
+        CameraFollowPlayers.addPlayerToCamera(player1.transform);
+        CameraFollowPlayers.addPlayerToCamera(player2.transform);
     }
 }
