@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class InstantiateFighters : MonoBehaviour
@@ -25,14 +27,19 @@ public class InstantiateFighters : MonoBehaviour
     [SerializeField] GameObject rightBrainEnvironment;
     [SerializeField] GameObject rightTimeTravelerEnvironment;
 
+    [Header("Health UI")]
+    [SerializeField] Image[] portraits = new Image[2];
+    [SerializeField] Sprite cavemanPortrait;
+    [SerializeField] Sprite knightPortrait;
+    [SerializeField] Sprite eightiesGuyPortrait;
+    [SerializeField] Sprite brainPortrait;
+    [SerializeField] Sprite timeTravelerPortrait;
+
 
     private void Start()
     {
         timeTraveler = GameManager.timeTraveler;
         CreateFighters();
-
-        Debug.Log(SelectFighter.players[0].input);
-        Debug.Log(SelectFighter.players[1].input);
     }
 
     public void CreateFighters()
@@ -69,6 +76,9 @@ public class InstantiateFighters : MonoBehaviour
 
         player1.GetComponent<PlayerInput>().SwitchCurrentControlScheme(SelectFighter.players[0].input);
         player2.GetComponent<PlayerInput>().SwitchCurrentControlScheme(SelectFighter.players[1].input);
+
+        AssignUI(SelectFighter.players[0].fighter, 0);
+        AssignUI(SelectFighter.players[1].fighter, 1);
     }
 
     public void CreateEnvironment(GameObject fighter, Vector3 position, bool isLeft)
@@ -131,5 +141,33 @@ public class InstantiateFighters : MonoBehaviour
         }
 
         Instantiate(environement, position, Quaternion.identity);
+    }
+
+    public void AssignUI(GameObject fighter, int index)
+    {
+        if (fighter == caveman)
+        {
+            portraits[index].sprite = cavemanPortrait;
+        }
+        else if (fighter == knight)
+        {
+            portraits[index].sprite = knightPortrait;
+        }
+        else if (fighter == eightesGuy)
+        {
+            portraits[index].sprite = eightiesGuyPortrait;
+        }
+        else if (fighter = brain)
+        {
+            portraits[index].sprite = brainPortrait;
+        }
+        else if (fighter == timeTraveler)
+        {
+            portraits[index].sprite = timeTravelerPortrait;
+        }
+        else
+        {
+            portraits[index].sprite = timeTravelerPortrait;
+        }
     }
 }
