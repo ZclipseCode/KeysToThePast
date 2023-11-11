@@ -30,6 +30,9 @@ public class InstantiateFighters : MonoBehaviour
     {
         timeTraveler = GameManager.timeTraveler;
         CreateFighters();
+
+        Debug.Log(SelectFighter.players[0].input);
+        Debug.Log(SelectFighter.players[1].input);
     }
 
     public void CreateFighters()
@@ -63,6 +66,9 @@ public class InstantiateFighters : MonoBehaviour
 
         CreateEnvironment(SelectFighter.players[0].fighter, new Vector3(-6, 5, 14.25f), true);
         CreateEnvironment(SelectFighter.players[1].fighter, new Vector3(-6, 5, 14.25f), false);
+
+        player1.GetComponent<PlayerInput>().SwitchCurrentControlScheme(SelectFighter.players[0].input);
+        player2.GetComponent<PlayerInput>().SwitchCurrentControlScheme(SelectFighter.players[1].input);
     }
 
     public void CreateEnvironment(GameObject fighter, Vector3 position, bool isLeft)

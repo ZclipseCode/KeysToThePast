@@ -17,7 +17,10 @@ public class PlayerJoin : MonoBehaviour
         // Pass the input action to the SelectFighter.playerJoin method
         if (inputAction != null)
         {
-            SelectFighter.playerJoin?.Invoke(inputAction);
+            SelectFighter.playerJoin?.Invoke(playerInput.devices[0]);
+
+            // prints out input device
+            Debug.Log(playerInput.devices[0]);
         }
     }
 }

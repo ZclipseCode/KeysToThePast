@@ -11,10 +11,12 @@ public class SelectFighter : MonoBehaviour
     [SerializeField] string fightScene;
     public static Player[] players;
     int currentPlayerIndex;
-    InputAction tempInput;
+    InputDevice tempInput;
     GameObject tempFighter;
-    public delegate void PlayerJoinDelegate(InputAction action);
+    public delegate void PlayerJoinDelegate(InputDevice action);
     public static PlayerJoinDelegate playerJoin;
+
+    PlayerInputManager playerInputManager;
 
     private void Awake()
     {
@@ -25,11 +27,13 @@ public class SelectFighter : MonoBehaviour
 
     private void Start()
     {
+        playerInputManager = GetComponent<PlayerInputManager>();
+
         players = new Player[2];
         ReadyForInput();
     }
 
-    public void AddInput(InputAction input)
+    public void AddInput(InputDevice input)
     {
         tempInput = input;
 
@@ -83,11 +87,15 @@ public class SelectFighter : MonoBehaviour
     public void ReadyForInput()
     {
         prompt.text = $"Player {currentPlayerIndex + 1}: Press Any Button!";
+
+        playerInputManager.EnableJoining();
     }
 
     public void ReadyForFighter()
     {
         prompt.text = $"Player {currentPlayerIndex + 1}: Choose Your Fighter!";
+
+        playerInputManager.DisableJoining();
     }
 
     private void OnDestroy()

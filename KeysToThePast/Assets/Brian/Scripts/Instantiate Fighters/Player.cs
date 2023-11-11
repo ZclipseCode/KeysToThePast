@@ -8,10 +8,10 @@ using UnityEngine.InputSystem;
 public class Player
 {
     public int playerId;
-    public InputAction input;
+    public InputDevice input;
     public GameObject fighter;
 
-    public Player(int playerId, InputAction input, GameObject fighter)
+    public Player(int playerId, InputDevice input, GameObject fighter)
     {
         this.playerId = playerId;
         this.input = input;
