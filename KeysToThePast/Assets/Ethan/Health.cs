@@ -14,7 +14,7 @@ public class Health : MonoBehaviour{
     //public int tension;
     //[SerializeField] int maxTension;
 
-    public Slider healthBar;
+    Slider healthBar;
 
     private void Start() {
         HP = maxHP;
