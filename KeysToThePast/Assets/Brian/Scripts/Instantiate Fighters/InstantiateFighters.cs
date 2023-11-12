@@ -157,7 +157,7 @@ public class InstantiateFighters : MonoBehaviour
         {
             portraits[index].sprite = eightiesGuyPortrait;
         }
-        else if (fighter = brain)
+        else if (fighter == brain)
         {
             portraits[index].sprite = brainPortrait;
         }
