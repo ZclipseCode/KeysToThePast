@@ -34,6 +34,8 @@ public class InstantiateFighters : MonoBehaviour
     [SerializeField] Sprite eightiesGuyPortrait;
     [SerializeField] Sprite brainPortrait;
     [SerializeField] Sprite timeTravelerPortrait;
+    [SerializeField] Slider leftHealthBar;
+    [SerializeField] Slider rightHealthBar;
 
 
     private void Start()
@@ -77,8 +79,11 @@ public class InstantiateFighters : MonoBehaviour
         player1.GetComponent<PlayerInput>().SwitchCurrentControlScheme(SelectFighter.players[0].input);
         player2.GetComponent<PlayerInput>().SwitchCurrentControlScheme(SelectFighter.players[1].input);
 
-        AssignUI(SelectFighter.players[0].fighter, 0);
-        AssignUI(SelectFighter.players[1].fighter, 1);
+        AssignPortaits(SelectFighter.players[0].fighter, 0);
+        AssignPortaits(SelectFighter.players[1].fighter, 1);
+
+        AssignHealth(SelectFighter.players[0].fighter, 0);
+        AssignHealth(SelectFighter.players[1].fighter, 1);
     }
 
     public void CreateEnvironment(GameObject fighter, Vector3 position, bool isLeft)
@@ -143,7 +148,7 @@ public class InstantiateFighters : MonoBehaviour
         Instantiate(environement, position, Quaternion.identity);
     }
 
-    public void AssignUI(GameObject fighter, int index)
+    public void AssignPortaits(GameObject fighter, int index)
     {
         if (fighter == caveman)
         {
@@ -169,5 +174,23 @@ public class InstantiateFighters : MonoBehaviour
         {
             portraits[index].sprite = timeTravelerPortrait;
         }
+    }
+
+    public void AssignHealth(GameObject fighter, int index)
+    {
+        Health health = fighter.GetComponent<Health>();
+
+        if (index == 0)
+        {
+            health.SetHealthBar(leftHealthBar);
+        }
+        else
+        {
+            health.SetHealthBar(rightHealthBar);
+        }
+
+        //health.ChangeHealthBar();
+
+        //unfinished
     }
 }

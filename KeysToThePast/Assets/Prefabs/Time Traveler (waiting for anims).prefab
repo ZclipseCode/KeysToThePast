@@ -984,6 +984,7 @@ GameObject:
   - component: {fileID: 8930858147245734587}
   - component: {fileID: 9204741995343756606}
   - component: {fileID: 7462439759947419584}
+  - component: {fileID: 6656856757217981518}
   m_Layer: 0
   m_Name: Time Traveler (waiting for anims)
   m_TagString: Untagged
@@ -1315,6 +1316,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 8796138865984255768}
   head: {fileID: 8795059132655835026}
+--- !u!114 &6656856757217981518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6885836028771929915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57905ce14974311418c206955c8fa416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 100
+  HP: 0
+  pas: {fileID: 2597603228019469756}
+  rb: {fileID: 8930858147245734587}
+  healthBar: {fileID: 0}
 --- !u!1 &6962912549461975978
 GameObject:
   m_ObjectHideFlags: 0

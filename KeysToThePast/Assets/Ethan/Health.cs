@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour{
     [SerializeField] int maxHP = 100;
@@ -12,6 +13,8 @@ public class Health : MonoBehaviour{
     private int damage;
     //public int tension;
     //[SerializeField] int maxTension;
+
+    public Slider healthBar;
 
     private void Start() {
         HP = maxHP;
@@ -27,6 +30,8 @@ public class Health : MonoBehaviour{
         }
     }
     private void SendDamage() {
+        ChangeHealthBar();
+
         HP -= damage;
         if (HP < 0) {
             Death();
@@ -45,5 +50,17 @@ public class Health : MonoBehaviour{
 
     private void Death() {
         Destroy(gameObject);
+
+        Application.Quit();
+    }
+
+    public void SetHealthBar(Slider bar)
+    {
+        healthBar = bar;
+    }
+
+    public void ChangeHealthBar()
+    {
+        healthBar.value = HP;
     }
 }
