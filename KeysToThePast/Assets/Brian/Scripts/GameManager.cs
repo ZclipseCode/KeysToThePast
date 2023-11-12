@@ -27,4 +27,12 @@ public class GameManager : MonoBehaviour
     {
         timeTraveler = baseTimeTraveler;
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
 }

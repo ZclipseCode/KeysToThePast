@@ -170,27 +170,23 @@ public class CustomizerUI : MonoBehaviour
         return null;
     }
 
+    // only works in the editor hahahahaha
     public void SaveCharacter()
     {
-        //GameManager.timeTraveler = timeTravelerInScene;
+        //if (!Directory.Exists("Assets/Prefabs"))
+        //    AssetDatabase.CreateFolder("Assets", "Custom");
+        //string localPath = "Assets/Custom/" + timeTravelerInScene.name + ".prefab";
 
-        if (!Directory.Exists("Assets/Prefabs"))
-            AssetDatabase.CreateFolder("Assets", "Custom");
-        string localPath = "Assets/Custom/" + timeTravelerInScene.name + ".prefab";
+        //// Create the new Prefab and log whether Prefab was saved successfully.
+        //bool prefabSuccess;
+        //GameObject newTimeTraveler = PrefabUtility.SaveAsPrefabAsset(timeTravelerInScene, localPath, out prefabSuccess);
+        //if (prefabSuccess == true)
+        //    Debug.Log("Prefab was saved successfully");
+        //else
+        //    Debug.Log("Prefab failed to save" + prefabSuccess);
 
-        // Make sure the file name is unique, in case an existing Prefab has the same name.
-        //localPath = AssetDatabase.GenerateUniqueAssetPath(localPath);
-
-        // Create the new Prefab and log whether Prefab was saved successfully.
-        bool prefabSuccess;
-        GameObject newTimeTraveler = PrefabUtility.SaveAsPrefabAsset(timeTravelerInScene, localPath, out prefabSuccess);
-        if (prefabSuccess == true)
-            Debug.Log("Prefab was saved successfully");
-        else
-            Debug.Log("Prefab failed to save" + prefabSuccess);
-
-        GameManager.timeTraveler = newTimeTraveler;
-        GameManager.head = texture;
-        GameManager.color = color;
+        //GameManager.timeTraveler = newTimeTraveler;
+        //GameManager.head = texture;
+        //GameManager.color = color;
     }
 }
